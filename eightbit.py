@@ -72,7 +72,7 @@ class eightBitSim():
 			if logging:
 				print("> > > Sniffing the Blooper as hard as possible")
 			self.olfactionUsed = True
-			for i in range(2 + self.nonolfactcopies):
+			for i in range(2 + self.nonolfactcopies if self.olfaction else self.nonolfactcopies):
 				self.zoneMonsters.append(7)
 		for i in range(4):
 			self.pixels[i] += monsterData[monster][1][i]
@@ -135,4 +135,11 @@ logging = True
 if __name__ == "__main__":
 	print(
 		eightBitSim(
+		itemdrop = 100, 	# Unimplemented, but some day may reflect your item drop %
+		olfaction = True, 	# Do you have transcendent olfaction?
+		wish = True, 		# Are you wishing to fight a blooper to sniff it?
+		enamorang = False, 	# Unimplemented, but some day may ask if you're going to enamorang a blooper
+		banishes = 3, 		# How many banishes do you have access to?
+		nonolfactcopies = 1,# Aside from transcendent olfaction, how many weak sniffs do you have? (Galapagosian, Offer Latte, etc)
+		strategy = 0		# Unimplemented, but some day may determine your banish strategy
 		).runSimulations())
